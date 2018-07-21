@@ -1,0 +1,14 @@
+---
+- name: installing dependencies for CentOS
+  yum:
+    name: "{{ item }}"
+    state: installed
+  with_items: "{{ centos }}"
+  when: ansible_distribution == "CentOS"
+
+- name: installing dependencies for Ubuntu
+  apt:
+    name: "{{ items }}"
+    state: installed
+  with_items: "{{ ubuntu }}"
+  when: ansible_distribution == "Ubuntu"

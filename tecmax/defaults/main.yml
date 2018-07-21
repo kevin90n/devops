@@ -1,0 +1,11 @@
+---
+# defaults file for maven
+centos:
+    - wget 
+    - screen
+    - unzip
+ubuntu:
+    - wget
+    - screen
+    - unzip
+

@@ -1,0 +1,7 @@
+---
+# handlers file for maven
+- name: tomcat_start
+  service:
+      name: tomcat
+      state: started
+      enabled: yes

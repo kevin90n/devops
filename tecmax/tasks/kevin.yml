@@ -1,0 +1,11 @@
+---
+- name: ok
+  hosts: localhost
+  become: true
+  tasks:
+  - name: checking
+    command: rpm -qa wgedt
+    register: wget_status
+  - name: debuggin
+    debug:
+      var: wget_status

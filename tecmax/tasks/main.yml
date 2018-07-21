@@ -1,0 +1,14 @@
+---
+# tasks file for maven
+- name: Installing the depenedencies
+  import_tasks:
+    dependencies/main.yml
+- name: Installing and configuring java
+  import_tasks:
+    java/main.yml
+- name: Installing and configuring tomcat
+  import_tasks:
+      tomcat/main.yml
+- name: Installing and configuring maven
+  import_tasks:
+      maven/main.yml

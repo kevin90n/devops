@@ -1,0 +1,27 @@
+---
+- name: installing tomcat for centos
+  yum:
+      name: tomcat
+      state: installed
+  when: ansible_distribution == "CentOS"
+- name: installing tomcat for ubuntu
+  apt:
+    name: tomcat
+    state: installed
+  when: ansible_distribution == "Ubuntu"
+
+- name: configuring port in tomcat
+  template:
+    src: /kevin/tecmax/templates/tomcatconf.j2
+    dest: /usr/share/tomcat/conf/server.xml
+    mode: 0644
+    force: yes
+
+- name: checking tomcat installation
+  command: rpm -qa tomcat
+  register: tomcat_status
+
+- name: enabling and starting tomcat service
+  command: echo "this task will restart the tomcat"
+  notify: tomcat_start
+  when: tomcat_status.stdout != ""

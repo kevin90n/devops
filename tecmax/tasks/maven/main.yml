@@ -1,0 +1,12 @@
+---
+- name: installing maven for centos
+  yum: 
+    name: maven
+    state: installed
+  when: ansible_distribution == "CentOS"
+- name: installing maven for ubuntu
+  apt:
+    name: maven
+    state: installed
+  when: ansible_distribution == "Ubuntu"
+...
