@@ -1,0 +1,5 @@
+- name: Installing and configuring Java,Maven,Tomcat
+  hosts: localhost
+  become: true
+  roles:
+    - tecmax
